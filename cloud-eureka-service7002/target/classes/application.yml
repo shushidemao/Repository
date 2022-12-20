@@ -1,0 +1,22 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: cloud-eureka-service1
+eureka:
+  instance:
+    hostname: eureka7002.com #服务注册中心IP地址
+  client:
+    registerWithEureka: false #是否向服务注册中心注册自己
+    fetchRegistry: false #是否检索服务
+    serviceUrl: #服务注册中心的配置内容，指定服务注册中心的位置
+      #集群，指向其他eureka服务器节点
+      #defaultZone: http://eureka7001.com:7001/eureka/
+      #单机，指向自己
+      defaultZone: http://eureka7002.com:7002/eureka/
+
+    #server:
+    #自我保护机制，默认是true 开启状态
+    #enable-self-preservation: true
+    #设置eureka与服务通信时间为2s(默认90s)，服务一旦不可用及时剔除
+    #eviction-interval-timer-in-ms: 2000
