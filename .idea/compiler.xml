@@ -13,6 +13,7 @@
         <module name="cloud-eureka-service7002" />
         <module name="cloud-provider-payment8001" />
         <module name="cloud-gateway-service9527" />
+        <module name="cloud-config-server3344" />
         <module name="cloud-consumer-feign-hystrix-order80" />
         <module name="cloud-consumer-order80" />
         <module name="cloud-provider-hystrix-payment8001" />
