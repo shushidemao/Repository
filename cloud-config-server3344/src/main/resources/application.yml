@@ -8,8 +8,10 @@ spring:
       server:
         git:
           uri: https://github.com/shushidemao/springcloud-config.git #github上面的git仓库地址，代表从远程仓库获取配置信息
-          search-paths: springcloud-config #代表从哪个仓库获取配置
-      label: main #从哪个分支获取配置
+          search-paths:
+            - springcloud-config #代表从哪个仓库获取配置
+          skip-ssl-validation: true
+      label: master #从哪个分支获取配置
 
 eureka:
   client:
