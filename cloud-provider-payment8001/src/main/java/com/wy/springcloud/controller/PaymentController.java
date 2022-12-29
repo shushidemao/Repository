@@ -1,5 +1,6 @@
 package com.wy.springcloud.controller;
 
+import com.wy.springcloud.entity.ECNTokenDTO;
 import com.wy.springcloud.entity.Payment;
 import com.wy.springcloud.entity.Result;
 import com.wy.springcloud.service.PaymentService;
@@ -73,6 +74,22 @@ public class PaymentController {
         log.info("入参："+s);
         System.out.println("入参："+s);
         return new Result().success("ok");
+    }
+
+    @PostMapping(value = "/ecnToken")
+    public Result generateEcnToken(@RequestBody ECNTokenDTO s){
+        Long startTime=s.getTimeStamp();
+        Long endTime = startTime+1000;
+        Date start = new Date(startTime);
+        Date end = new Date(endTime);
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String generatetime=sdFormatter.format(start);
+        String expiretime=sdFormatter.format(end);
+        ECNTokenDTO ecnTokenDTO = new ECNTokenDTO();
+        ecnTokenDTO.setGeneratetime(generatetime);
+        ecnTokenDTO.setExpiretime(expiretime);
+        ecnTokenDTO.setAccesstoken("1231412412313");
+        return new Result().success(ecnTokenDTO);
     }
 
     public static void main(String[] args) throws ParseException {

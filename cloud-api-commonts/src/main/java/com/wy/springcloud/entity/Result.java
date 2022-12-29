@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Result<T> {
     private Integer    code;
     private String     message;
-    private T          date;
+    private T          data;
 
     public Result(Integer code,String message){
         this.code=code;
@@ -18,10 +18,10 @@ public class Result<T> {
     }
 
 
-    public  Result<T> success(T date){
-        return new Result(200,"成功",date);
+    public  Result<T> success(T data){
+        return new Result(200,"成功",data);
     }
-    public  Result<T> success(String message,T date){
-        return new Result(200,message,date);
+    public  Result<T> success(String message,T data){
+        return new Result(200,message,data);
     }
 }
